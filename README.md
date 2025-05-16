@@ -9,3 +9,7 @@ Dalam string `amqp://guest:guest@localhost:5672`, amqp:// berlaku sebagai identi
 ## Simulation slow subscriber
 ![Simulation slow subscriber](image/slow.png)
 Queue pada screen ini di sekitar 75. Dari kode yang ditambahkan sleep, program menjadi lambat dalam menerima message. Banyaknya message dari sisi publisher dan kelambatan subscriber untuk menerima akan menghasilkan queue pada message broker. Message akan disimpan pada queue sampai bisa di-deliver ke subscriber dengan baik. Khususnya jika kita membuat request banyak dan cepat, queue akan semakin panjang.
+
+## Reflection and Running at least three subscribers
+![Reflection and Running at least three subscribers](image/triple.png)
+Queue pada screen ini di sekitar 30. Dengan rate pengiriman yang sama, queue menjadi lebih cepat. Hal ini disebabkan oleh distribusi message di antara ketiga subscriber. Dengan 3 subscriber, 3 pesan akan dikirimkan secara sekaligus. Dengan parallel process ini, queue akan berkurang. Pengembangan kode selanjutnya dapat berupa error handling dan retry ketika message tidak dikirim dengan baik.
