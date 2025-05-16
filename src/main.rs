@@ -12,7 +12,7 @@ pub struct UserCreatedHandler;
 
 impl MessageHandler<UserCreatedEventMessage> for UserCreatedHandler {
     fn get_handler_action(&self) -> String {
-        "user_created".to_string()s
+        "user_created".to_string()
     }
 
     fn handle(&self, message: Box<UserCreatedEventMessage>) -> Result<(), HandleError> {
